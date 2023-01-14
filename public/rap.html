@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rap</title>
+
+<style>
+
+body {
+  background-color: #d5e1df;
+}
+
+
+.playlist {
+    position: absolute;
+    left: 650px;
+    top: 150px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    border-radius: 8px;
+}
+
+.add {
+    position: absolute;
+    left: 650px;
+    top: 350px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 95px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    border-radius: 8px;
+}
+</style>
+
+<body>
+
+    <!-- <img src="background_image.png" alt="Trulli" width="1500" height="500"> -->
+    
+
+    <button class="playlist" onclick="createPlaylist()">Create Rap Playlist</button>
+    <button class="add" onclick="addSong()">Add Song</button>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+
+
+function createPlaylist() {
+    var create = {
+        "url": "https://api.spotify.com/v1/users/daraosullivan-00/playlists",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Authorization": "Bearer BQBtlAYMKMN3UicPj-33MkCAGNSzcFSB8gTcMTK57qVnxSuv2MHGxQwOO2lp6nJqTI__kDOOuc6aQKBrgSjhXzJxDVJMNNWmEky1x15Z7Bdvr-YNO7yuIBlu8yhwzs_d4Y4ORmDDekRmV0E4Iw0pqH9_wIIq3Gy8te7fwWEvyPYu21_B0hTGaYFeiRvzHa2Q96uhudzye8Oc7TUFiWycliHUdAIdzVoVcJfD_3zvrYMzy9Q2HBAAGrzQTRy5z4GzReEMckNvlNnDEHs",
+            "Content-Type": "text/plain"
+        },
+        "data": "{\r\n  \"name\": \"Rap Playlist\",\r\n  \"description\": \"Some rap songs\",\r\n  \"public\": false\r\n}",
+    };
+
+    $.ajax(create).done(function (response) {
+        console.log(response);
+    });
+
+    alert("Created Rap Playlist");
+    
+}
+
+
+function addSong() {
+    var add = {
+  "url": "https://api.spotify.com/v1/playlists/32boAyv74YiwlfIjCCjNy1/tracks?uris=spotify:track:46b23Nj2UftnN8jSWz4VR5",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Authorization": "Bearer BQDA3EhB2_OmtqaVBzWmgyaXePJcOCBOcZsrGTDpccThCSF9gi-9Pm2Zq5OUs3YyRpkg0XQP4PWu_Gd9RbJruZ7DwYslTHWC5XAjPo8MUcL75Wjf7CHPCIj5zhg7pmvyufw3AFvw-qNPnZ044uPsdbIsD97F7eppwcJ8PuIzraIXj5GA9XRnjx3BneBaTV_GWeFnFk-4MO5iS3J9KuAviASvvdB6gTXYzHnpe8lVohexglK20PECHxWytSNmzU7IrbzqYUua-D-H_c0"
+  },
+};
+
+$.ajax(add).done(function (response) {
+  console.log(response);
+});
+
+alert("Added song to playlist");
+}
+</script>
+
+</body>
+
+</html>
