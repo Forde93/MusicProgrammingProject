@@ -2,7 +2,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { getFirestore , collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
-import { setUpArtists } from './index.js';
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -33,10 +32,7 @@ const db = getFirestore();
 
 
 //--------------------Firebase Firestore--------------------//
-const querySnapshot = await getDocs(collection(db, "topArtists"));
-querySnapshot.forEach((doc) => {
-  setUpArtists(querySnapshot.docs);
-});
+
 
 
 
@@ -47,7 +43,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log(user);
       const uid = user.uid;
-      document.getElementById("userName").innerHTML = user.email;
+      document.getElementById("userName").innerHTML = "Welcome : " + user.email;
       // ...
     } else {
       // User is signed out
@@ -76,6 +72,8 @@ signupForm.addEventListener('submit', (e) => {
   });
 });
 
+
+
 // login
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -92,6 +90,7 @@ loginForm.addEventListener('submit', (e) => {
         const modal = document.querySelector('#modal-login');
         M.Modal.getInstance(modal).close();
         loginForm.reset();
+        
       // ...
     })
     .catch((error) => {

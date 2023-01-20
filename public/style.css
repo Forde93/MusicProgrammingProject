@@ -100,6 +100,17 @@ body {margin:0;}
     padding: 0;
 }
 
+.svg-icon{
+  position: absolute;
+  left: -200px;
+}
+
+.username{
+  position: absolute;
+  left: -100px;
+  color: black;
+}
+
 .left {
   position: absolute;
   top: 0;

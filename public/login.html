@@ -13,7 +13,7 @@
         <nav class="z-depth-0 grey lighten-4">
             <div class="nav-wrapper container">
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
+                <li class="svg-icon">
                 <a href="index.html">
                     <svg width="24" height="24" viewBox="0 0 24 24">
                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -22,25 +22,44 @@
                 </a>
                 </li>
                 <li class="logged-in">
-                <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
                 </li>
-                <li class="logged-in">
-                <a href="#" class="grey-text" id="logout">Logout</a>
+                <li class="username logged-in" id="userName">
+                    <!--USER NAME DISPLAY-->
                 </li>
-                <li class="logged-in">
-                <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+                <li>
+                  <a href="topArtists.html" class="grey-text" id="logout">Top Artists</a>
+                </li>
+                <li>
+                  <a href="topSongs.html" class="grey-text" id="logout">Top Tracks</a>
                 </li>
                 <li class="logged-out">
-                <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
                 </li>
                 <li class="logged-out">
-                <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
                 </li>
             </ul>
             </div>
         </nav>
-  
 
+                    <!-- LOGIN MODAL -->
+                    <div id="modal-login" class="modal">
+                        <div class="modal-content">
+                        <h4>Login</h4><br />
+                        <form id="login-form">
+                            <div class="input-field">
+                            <input type="email" id="login-email" required />
+                            <label for="login-email">Email address</label>
+                            </div>
+                            <div class="input-field">
+                            <input type="password" id="login-password" required />
+                            <label for="login-password">Your password</label>
+                            </div>
+                            <button class="btn yellow darken-2 z-depth-0">Login</button>
+                        </form>
+                        </div>
+                    </div>
           <!-- SIGN UP MODAL -->
         <div id="modal-signup" class="modal">
             <div class="modal-content">
@@ -59,43 +78,14 @@
             </div>
         </div>
 
-            <!-- LOGIN MODAL -->
-        <div id="modal-login" class="modal">
-            <div class="modal-content">
-            <h4>Login</h4><br />
-            <form id="login-form">
-                <div class="input-field">
-                <input type="email" id="login-email" required />
-                <label for="login-email">Email address</label>
-                </div>
-                <div class="input-field">
-                <input type="password" id="login-password" required />
-                <label for="login-password">Your password</label>
-                </div>
-                <button class="btn yellow darken-2 z-depth-0">Login</button>
-            </form>
-            </div>
-        </div>
 
-            <!-- ACCOUNT MODAL -->
-        <div id="modal-account" class="modal">
-            <div class="modal-content center-align">
-            <h4>Account details</h4><br />
-            <div class="account-details"></div>
-            <div class="account-extras"></div>
-            </div>
-        </div>
-
-
-        <div id="topAristsDiv">
-            <table id="table-container" class="table table-hover"></table>
-        </div>
-
-        <h1 id="userName"></h1>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script type="module" src="auth.js"></script>
         <script type="module" src="index.js"></script>
+
+
+        
     </body>
 </html>

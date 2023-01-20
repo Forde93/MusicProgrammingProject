@@ -9,14 +9,3 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Collapsible.init(items);
   
   });
-
-export const setUpArtists = (data) =>{
-  let html = '';
-  data.forEach(doc => {
-    const artist = doc.data();
-    const item = `<tr><td>${artist.Position}</td><td>${artist.Artist}</td></tr><tr>`
-    html += item;
-  });
-
-  table.innerHTML = html;
-}
